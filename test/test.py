@@ -4,7 +4,7 @@ from fastf1 import plotting
 
 plotting.setup_mpl()
 
-sochi_quali = ff1.get_session(2021, 'Sochi', 'R')
+sochi_quali = ff1.get_session(2021, 'Monza', 'Q')
 
 laps = sochi_quali.load_laps(with_telemetry = True)
 
@@ -20,7 +20,7 @@ drs1 = driver_1_car_data['DRS']
 t1 = driver_1_car_data['Time']
 
 # driver 2
-fast_driver_2 = laps.pick_driver('HAM').pick_fastest()
+fast_driver_2 = laps.pick_driver('RIC').pick_fastest()
 driver_2_car_data = fast_driver_2.get_car_data()
 vCar2 = driver_2_car_data['Speed']
 rpm2 = driver_2_car_data['RPM']
@@ -33,10 +33,10 @@ t2 = driver_2_car_data['Time']
 fig, ax1 = plt.subplots()
 
 ax1.plot(t1, vCar1, label = 'Norris', color = 'orange')
-ax1.plot(t2, vCar2, label = 'Hamilton', color = 'teal')
+ax1.plot(t2, vCar2, label = 'Ricciardo', color = 'skyblue')
 ax1.set_xlabel('Time')
 ax1.set_ylabel('Speed [Km/h]')
-ax1.set_title('Sochi Fastest Lap Comparison')
+ax1.set_title('Monza 2021 Qualifying Comparison')
 ax1.legend()
 
 # 2nd y axis
