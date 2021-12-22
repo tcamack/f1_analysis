@@ -17,7 +17,7 @@ def main():
         """Reconstruct time in a readable format."""
         minutes = 0
         seconds, ms = str(time).split('.')
-        while int(seconds) > 60:
+        while int(seconds) >= 60:
             seconds = int(seconds) - 60
             minutes += 1
 
@@ -30,7 +30,7 @@ def main():
     session = ff1.get_session(year, race, 'R')
     laps = session.load_laps(with_telemetry=True)
 
-    # Driver 1 delclaration and plot options.
+    # Driver 1 declaration and plot options.
     driver_1 = laps.pick_driver(driver_1_initials)
     driver_1_lap_data = driver_1[driver_1['LapNumber'] ==
                                  lap_number].iloc[0]
